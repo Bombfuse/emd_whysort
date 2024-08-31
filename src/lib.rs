@@ -23,6 +23,18 @@ pub struct YSort {
     #[serde(default)]
     once: bool,
 }
+impl YSort {
+    pub fn new(layer: u32) -> Self {
+        Self {
+            layer,
+            spacer: 1,
+            once: false,
+        }
+    }
+    pub fn layer(&self) -> u32 {
+        self.layer
+    }
+}
 
 pub fn y_sort_system(world: &mut World) {
     let mut entities_by_layer: HashMap<YSort, Vec<Entity>> = HashMap::new();
